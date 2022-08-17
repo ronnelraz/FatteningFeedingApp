@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Fattening Feeding App</string>
+    <string name="title_login">Please Login your Account</string>
 </resources>
