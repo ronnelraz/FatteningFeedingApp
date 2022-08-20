@@ -58,7 +58,7 @@
         android:layout_marginRight="20dp"
         android:layout_below="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -155,9 +155,47 @@
             android:backgroundTint="@color/purple_200"
             app:iconGravity="textStart"
             app:cornerRadius="50dp"
+            android:layout_marginBottom="10dp"
+            app:elevation="10px"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:enabled="false"
+            android:id="@+id/download"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0.4in"
+            android:layout_marginLeft="2mm"
+            android:layout_marginRight="2mm"
+            android:text="Download User Data"
+            android:textSize="25px"
+            app:icon="@drawable/cloud_download_alt"
+            android:backgroundTint="#F57C00"
+            app:iconGravity="textStart"
+            app:cornerRadius="50dp"
+            android:layout_marginBottom="10dp"
             app:elevation="10px"/>
 
     </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Status : "
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_marginLeft="50dp"
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Initialize NetworkChecker" />
+
+
+
+
 
 
 </RelativeLayout>

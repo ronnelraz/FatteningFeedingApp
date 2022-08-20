@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/drawable/bottom_rounded.xml" value="0.2445" />
+        <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/drawable/cloud_download_alt.xml" value="0.362" />
+        <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/drawable/home_location.xml" value="0.3635" />
+        <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/drawable/ic_back_button.xml" value="0.2695" />
         <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/drawable/radius_border.xml" value="0.2445" />
+        <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/layout/activity_main.xml" value="0.2975630611372381" />
+        <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/layout/custom_toast.xml" value="0.2975630611372381" />
+        <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/layout/home_complex_end.xml" value="0.2975630611372381" />
+        <entry key="..\:/Users/CPF Nigs/Desktop/FatteningFeedingApp/app/src/main/res/layout/menu_item_activity.xml" value="0.2967079948696024" />
       </map>
     </option>
   </component>
