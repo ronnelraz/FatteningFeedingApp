@@ -60,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
         globalMethod.isConnected(status);
         globalMethod.isDisconnected(status);
 
+        if(sharedPref.checkAuto_login_auth().equals("true")){
+            Log.d("swine",sharedPref.checkAuto_login_auth() + " ");
+            globalMethod.intent(Home.class,this);
+            finish();
+        }
+        else{
+            Log.d("swine","manual login");
+        }
+
         globalMethod.merlin.registerConnectable(new Connectable() {
             @Override
             public void onConnect() {
@@ -157,52 +166,57 @@ public class MainActivity extends AppCompatActivity {
         API.getClient().PC_FAT_USER_AUTHORIZE().enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
-                try {
 
-                    JSONObject jsonResponse = new JSONObject(new Gson().toJson(response.body()));
-                    boolean success = jsonResponse.getBoolean("success");
-                    JSONArray result = jsonResponse.getJSONArray("data");
+                if(response.isSuccessful()){
+                    Log.d("MAS_USER","success");
+                    try {
 
-                    if(success){
+                        JSONObject jsonResponse = new JSONObject(new Gson().toJson(response.body()));
+                        boolean success = jsonResponse.getBoolean("success");
+                        JSONArray result = jsonResponse.getJSONArray("data");
 
-                        for (int i = 0; i < result.length(); i++) {
-                            JSONObject object = result.getJSONObject(i);
-                            boolean save = globalMethod.save_mas_authorize(
-                                    object.getString("AD_USER"),
-                                    object.getString("ORG_CODE"),
-                                    object.getString("FARM_CODE")
-                            );
+                        if(success){
 
-                            boolean lastIndex = globalMethod.lastIndex(i,result);
-                            if(lastIndex){
-                                globalMethod.toast(R.raw.checked,"Download authorize Data successfully", Gravity.TOP|Gravity.CENTER,0,50);
+                            for (int i = 0; i < result.length(); i++) {
+                                JSONObject object = result.getJSONObject(i);
+                                boolean save = globalMethod.save_mas_authorize(
+                                        object.getString("AD_USER"),
+                                        object.getString("ORG_CODE"),
+                                        object.getString("FARM_CODE")
+                                );
+
+                                boolean lastIndex = globalMethod.lastIndex(i,result);
+                                if(lastIndex){
+                                    globalMethod.toast(R.raw.checked,"Download authorize Data successfully", Gravity.TOP|Gravity.CENTER,0,50);
+                                }
+                                else{
+
+                                }
+
+                                if(save){
+                                    Log.d("MAS_USER","Save authorize : " + object.getString("AD_USER") );
+                                }
+                                else{
+                                    Log.d("MAS_USER","Error Save authorize: " + object.getString("AD_USER") );
+                                }
+
+
+
                             }
-                            else{
-
-                            }
-
-                            if(save){
-                                Log.d("MAS_USER","Save authorize : " + object.getString("AD_USER") );
-                            }
-                            else{
-                                Log.d("MAS_USER","Error Save authorize: " + object.getString("AD_USER") );
-                            }
-
-
 
                         }
+                        else{
+                            Log.d("MAS_USER","error connecetion");
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Log.d("swine",e.getMessage() + " Error");
+
 
                     }
-                    else{
-
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.d("swine",e.getMessage() + " Error");
-
-
                 }
+
             }
 
             @Override

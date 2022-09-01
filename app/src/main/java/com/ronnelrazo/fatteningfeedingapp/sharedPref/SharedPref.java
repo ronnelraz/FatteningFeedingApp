@@ -44,6 +44,16 @@ public class SharedPref {
         return true;
     }
 
+    public String checkAuto_login_auth(){
+        sharedPreferences = cont.getSharedPreferences(SHARED_DATA,Context.MODE_PRIVATE);
+        return sharedPreferences.getString(SHARED_KEEP_SIGNED_IN, "false");
+    }
+
+    public String getUserLogin(){
+        sharedPreferences = cont.getSharedPreferences(SHARED_DATA,Context.MODE_PRIVATE);
+        return sharedPreferences.getString(AD_USER, "user");
+    }
+
 
 
 //    public String getAuth_token(){

@@ -5,13 +5,18 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.hariprasanths.bounceview.BounceView;
 import com.google.android.material.button.MaterialButton;
+import com.novoda.merlin.Connectable;
+import com.novoda.merlin.Disconnectable;
+import com.novoda.merlin.Merlin;
+import com.ronnelrazo.fatteningfeedingapp.ItemClickListener;
+import com.ronnelrazo.fatteningfeedingapp.Menu_enable;
 import com.ronnelrazo.fatteningfeedingapp.R;
+import com.ronnelrazo.fatteningfeedingapp.modal_interface;
 import com.ronnelrazo.fatteningfeedingapp.model.model_menu;
 
 import java.util.List;
@@ -19,14 +24,15 @@ import java.util.List;
 public class Adapter_menu_list extends RecyclerView.Adapter<Adapter_menu_list.ViewHolder> {
     Context mContext;
     List<model_menu> newsList;
+    private ItemClickListener itemClickListener;
+    private Menu_enable menu_enable;
 
-    private String[] getMenuAccessArray;
-
-    public Adapter_menu_list(List<model_menu> list, Context context) {
+    public Adapter_menu_list(List<model_menu> list, Context context,ItemClickListener itemClickListener,Menu_enable menu_enable) {
         super();
         this.newsList = list;
         this.mContext = context;
-
+        this.itemClickListener = itemClickListener;
+        this.menu_enable = menu_enable;
 
     }
 
@@ -46,11 +52,12 @@ public class Adapter_menu_list extends RecyclerView.Adapter<Adapter_menu_list.Vi
 
         holder.menu.setText(getData.getTitle());
         holder.menu.setIconResource(getData.getIcon());
+        menu_enable.postion(position, holder.menu,getData);
 
         holder.menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, getData.getTitle(), Toast.LENGTH_SHORT).show();
+                itemClickListener.onClick(v,getData.getPosition(),holder.menu);
             }
         });
 

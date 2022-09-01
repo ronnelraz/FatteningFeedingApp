@@ -12,7 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class API {
+public class APIJSON {
     private static Retrofit retrofit;
     public static APIInterface getClient(){
 
@@ -47,7 +47,7 @@ public class API {
 
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(config.URL)
+                .baseUrl(config.JSONURL)
 //                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().serializeNulls().create())) //new GsonBuilder().serializeNulls().create()
                 .client(client)

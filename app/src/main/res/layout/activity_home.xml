@@ -104,6 +104,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline2" />
 
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_margin="20dp"
         android:id="@+id/menulist"
@@ -118,6 +121,9 @@
         app:spanCount="2"
         tools:itemCount="8"
         tools:listitem="@layout/menu_item_activity" />
+
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dialogView"
@@ -152,7 +158,7 @@
 
 
             <LinearLayout
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="70dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -162,20 +168,83 @@
 
 
                 <TextView
+                    android:id="@+id/user"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cpf_mm_sook_bold"
                     android:textSize="20sp"
-                    android:text="User Login : aaaaaaaaaaa"/>
+                    tools:text="User Login : aaaaaaaaaaa"/>
 
                 <TextView
+                    android:id="@+id/org_code"
                     android:textColor="@color/white"
                     android:fontFamily="@font/cpf_mm_sook_bold"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Location : Fame Location"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/status"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/cpf_mm_sook_bold"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Status : Online"/>
+
+
+                <RelativeLayout
+                    android:layout_marginTop="1dp"
+                    tools:visibility="visible"
+                    android:visibility="gone"
+                    android:layout_marginRight="40dp"
+                    android:id="@+id/download_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:id="@+id/download_bar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:progressDrawable="@drawable/green_progress_drawable" />
+
+                    <TextView
+                        android:layout_marginTop="12dp"
+                        android:layout_below="@+id/download_bar"
+                        android:id="@+id/download_progress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cpf_imm_sook_regular"
+                        android:gravity="center|left"
+                        android:text="(10000/0000) 100%"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/download_table"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/download_progress"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="17dp"
+                        android:drawableLeft="@drawable/icons8_download_from_the_cloud"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/cpf_mm_sook_bold"
+                        android:gravity="center"
+                        android:text="Downloading..."
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
 
 
             </LinearLayout>
